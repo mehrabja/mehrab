@@ -1,3 +1,4 @@
+import pytest
 import json
 
 from reposentinel.scanner import scan, to_sarif
@@ -48,3 +49,13 @@ def test_sarif_is_valid_json(tmp_path):
     assert document["version"] == "2.1.0"
     assert document["runs"][0]["tool"]["driver"]["name"] == "RepoSentinel"
     assert document["runs"][0]["results"][0]["ruleId"] == "RS012"
+
+
+def test_refuses_symlink_scan_root(tmp_path):
+    target = tmp_path / "real"
+    target.mkdir()
+    (target / "safe.py").write_text("VALUE = 1\n", encoding="utf-8")
+    alias = tmp_path / "alias"
+    alias.symlink_to(target, target_is_directory=True)
+    with pytest.raises(ValueError, match="symbolic link"):
+        scan(alias)
