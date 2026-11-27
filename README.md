@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <strong>Three practical engineering projects — designed, tested, and documented as independent applications.</strong>
+  <strong>Three practical engineering projects — built with independent source trees, tests, and documentation.</strong>
 </p>
 
 <p align="center">
@@ -33,7 +33,7 @@ Each folder is independently runnable. No project requires credentials to run it
 A compact retrieval-augmented generation service that ingests text and Markdown, stores chunk metadata locally, retrieves relevant passages, and returns answers with source references.
 
 - Local deterministic retrieval baseline for repeatable demos.
-- Optional OpenAI-compatible embeddings and chat-completions endpoints.
+- Optional OpenAI-compatible chat-completions generation.
 - Source IDs and quoted evidence are returned with each answer.
 - Evaluation harness reports Recall@K and reciprocal rank on a small, versioned dataset.
 - Retrieved documents are treated as untrusted data; the prompt tells the model not to follow instructions found inside them.
@@ -78,13 +78,11 @@ A reproducible ML service template with a small deterministic classifier and a p
 ├── contextforge/
 │   ├── app/
 │   ├── tests/
-│   ├── eval/
-│   └── .github/workflows/
+│   └── eval/
 ├── reposentinel/
 │   ├── reposentinel/
-│   ├── tests/
-│   └── .github/workflows/
-└── modelops-launchpad/
+│   └── tests/
+├── modelops-launchpad/
     ├── app/
     ├── scripts/
     ├── tests/
