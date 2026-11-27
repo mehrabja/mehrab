@@ -80,6 +80,8 @@ reposentinel examples/demo-repo --format sarif --output demo.sarif --fail-on non
 
 The workflow runs unit tests and scans the implementation package with a critical-only gate. The workflow token is read-only. Review and tune rules before making the scanner a required check.
 
+The GitHub Actions workflow reports measured package coverage in its job summary; no minimum coverage threshold is claimed.
+
 ## Roadmap
 
 - [ ] Add configurable TOML rule profiles and path exclusions.
