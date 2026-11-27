@@ -1,6 +1,6 @@
 # ContextForge
 
-[![CI coverage 85% — 2026-11-27](https://img.shields.io/badge/CI%20coverage-85%25%20%7C%202026--11--27-7C3AED?style=flat-square&logo=pytest&logoColor=white)](https://github.com/mehrabja/mehrab/actions/runs/45963898099)
+[![CI coverage 85% — 2026-11-27](https://img.shields.io/badge/CI%20coverage-85%25%20%7C%202026--11--27-7C3AED?style=flat-square&logo=pytest&logoColor=white)](https://github.com/mehrabja/mehrab/actions/runs/45964099154)
 [![ContextForge CI](https://github.com/mehrabja/mehrab/actions/workflows/contextforge-ci.yml/badge.svg?branch=main)](https://github.com/mehrabja/mehrab/actions/workflows/contextforge-ci.yml)
 
 <p align="center">
