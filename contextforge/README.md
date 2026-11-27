@@ -66,7 +66,7 @@ The included fixture dataset is for regression checks, not a benchmark claim. Ad
 
 ## Security and limitations
 
-Prompt instructions reduce but do not eliminate prompt-injection risk. The local feature-hashing vectorizer is a deterministic baseline, not semantic embedding. The demo has no authentication, tenant isolation, quotas, rate limiting, or document deletion. Do not expose it publicly with sensitive data without adding those controls.
+Prompt instructions reduce but do not eliminate prompt-injection risk. The local feature-hashing vectorizer is a deterministic baseline, not semantic embedding. Review the [OWASP GenAI LLM Top 10 (2026)](https://genai.owasp.org/llm-top-10/) before extending this demo into an agentic or multi-tenant application. The demo has no authentication, tenant isolation, quotas, rate limiting, or document deletion. Do not expose it publicly with sensitive data without adding those controls.
 
 ## Roadmap
 
