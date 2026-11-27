@@ -1,0 +1,32 @@
+name: ContextForge CI
+
+on:
+  push:
+    paths:
+      - "contextforge/**"
+      - ".github/workflows/contextforge-ci.yml"
+  pull_request:
+    paths:
+      - "contextforge/**"
+      - ".github/workflows/contextforge-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: contextforge
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: contextforge/requirements.txt
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+      - run: PYTHONPATH=. python eval/run_eval.py
