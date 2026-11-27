@@ -1,0 +1,22 @@
+### Liveness
+GET http://127.0.0.1:8000/healthz
+
+###
+
+### Readiness — requires the model artifact to have been trained and loaded
+GET http://127.0.0.1:8000/readyz
+
+###
+
+### Predict — exactly four finite numeric features
+POST http://127.0.0.1:8000/v1/predict
+Content-Type: application/json
+
+{
+  "features": [0.2, -0.1, 1.3, 0.7]
+}
+
+###
+
+### Prometheus metrics
+GET http://127.0.0.1:8000/metrics
