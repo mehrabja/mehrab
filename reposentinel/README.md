@@ -1,5 +1,7 @@
 # RepoSentinel
 
+[![RepoSentinel CI](https://github.com/mehrabja/mehrab/actions/workflows/reposentinel-ci.yml/badge.svg?branch=main)](https://github.com/mehrabja/mehrab/actions/workflows/reposentinel-ci.yml)
+
 <p align="center">
   <img src="https://img.shields.io/badge/DEFENSIVE%20SECURITY-LOCAL%20SCANNER-0891B2?style=for-the-badge" alt="Defensive security scanner" />
   <img src="https://img.shields.io/badge/OUTPUT-JSON%20%7C%20SARIF%202.1.0-8B5CF6?style=for-the-badge" alt="JSON and SARIF" />
@@ -50,6 +52,20 @@ Or run without installation:
 
 ```bash
 PYTHONPATH=. python -m reposentinel ../some-repository --format text
+```
+
+## Hands-on scanner demo
+
+A deliberately unsafe, non-production fixture lives in [examples/demo-repo/](./examples/demo-repo/). It contains two small patterns so you can see the scanner report both rule IDs without executing the fixture:
+
+```bash
+reposentinel examples/demo-repo --format json --fail-on none
+```
+
+The expected findings are **RS010** (dynamic evaluation) and **RS011** (shell-enabled subprocess). The fixture is scanned as text; do not run its functions. To see a SARIF report instead:
+
+```bash
+reposentinel examples/demo-repo --format sarif --output demo.sarif --fail-on none
 ```
 
 ## Design and safety boundaries
