@@ -1,6 +1,6 @@
 # ModelOps Launchpad
 
-[![CI coverage 96% — 2026-11-27](https://img.shields.io/badge/CI%20coverage-96%25%20%7C%202026--11--27-7C3AED?style=flat-square&logo=pytest&logoColor=white)](https://github.com/mehrabja/mehrab/actions/runs/45963908194)
+[![CI coverage 96% — 2026-11-27](https://img.shields.io/badge/CI%20coverage-96%25%20%7C%202026--11--27-7C3AED?style=flat-square&logo=pytest&logoColor=white)](https://github.com/mehrabja/mehrab/actions/runs/45964110710)
 [![ModelOps Launchpad CI](https://github.com/mehrabja/mehrab/actions/workflows/modelops-ci.yml/badge.svg?branch=main)](https://github.com/mehrabja/mehrab/actions/workflows/modelops-ci.yml)
 
 <p align="center">
