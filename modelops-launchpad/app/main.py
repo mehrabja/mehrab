@@ -55,11 +55,13 @@ def create_app(model_path: str | Path | None = None) -> FastAPI:
     @api.middleware("http")
     async def collect_metrics(request: Request, call_next):
         started = time.perf_counter()
-        method, path = request.method, request.url.path
+        method = request.method
         try:
             return await call_next(request)
         finally:
             elapsed = time.perf_counter() - started
+            route = request.scope.get("route")
+            path = getattr(route, "path", "unmatched")
             key = (method, path)
             api.state.request_counts[key] += 1
             api.state.duration_sums[key] += elapsed
