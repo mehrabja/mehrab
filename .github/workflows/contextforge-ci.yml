@@ -31,5 +31,7 @@ jobs:
           cache-dependency-path: contextforge/requirements.txt
       - run: python -m pip install --upgrade pip
       - run: pip install -r requirements.txt
-      - run: PYTHONPATH=. pytest -q
+      - run: PYTHONPATH=. pytest -q --cov=app --cov-report=term-missing
+      - name: Add coverage to job summary
+        run: coverage report -m >> "$GITHUB_STEP_SUMMARY"
       - run: PYTHONPATH=. python eval/run_eval.py
