@@ -1,0 +1,1 @@
+"""ModelOps Launchpad inference service."""
