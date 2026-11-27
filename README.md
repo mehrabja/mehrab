@@ -77,16 +77,19 @@ A reproducible ML service template with a small deterministic classifier and a p
 .
 ├── contextforge/
 │   ├── app/
-│   ├── tests/
-│   └── eval/
+│   ├── eval/
+│   └── tests/
 ├── reposentinel/
 │   ├── reposentinel/
 │   └── tests/
 ├── modelops-launchpad/
-    ├── app/
-    ├── scripts/
-    ├── tests/
-    └── .github/workflows/
+│   ├── app/
+│   ├── scripts/
+│   └── tests/
+└── .github/workflows/
+    ├── contextforge-ci.yml
+    ├── reposentinel-ci.yml
+    └── modelops-ci.yml
 ```
 
 ## About the author
