@@ -1,6 +1,6 @@
 # RepoSentinel
 
-[![CI coverage 71% — 2026-11-27](https://img.shields.io/badge/CI%20coverage-71%25%20%7C%202026--11--27-7C3AED?style=flat-square&logo=pytest&logoColor=white)](https://github.com/mehrabja/mehrab/actions/runs/45963902029)
+[![CI coverage 71% — 2026-11-27](https://img.shields.io/badge/CI%20coverage-71%25%20%7C%202026--11--27-7C3AED?style=flat-square&logo=pytest&logoColor=white)](https://github.com/mehrabja/mehrab/actions/runs/45964104271)
 [![RepoSentinel CI](https://github.com/mehrabja/mehrab/actions/workflows/reposentinel-ci.yml/badge.svg?branch=main)](https://github.com/mehrabja/mehrab/actions/workflows/reposentinel-ci.yml)
 
 <p align="center">
