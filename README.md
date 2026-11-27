@@ -18,6 +18,12 @@
 
 ---
 
+<p align="center">
+  <a href="https://github.com/mehrabja/mehrab/actions/workflows/contextforge-ci.yml"><img src="https://github.com/mehrabja/mehrab/actions/workflows/contextforge-ci.yml/badge.svg?branch=main" alt="ContextForge CI" /></a>
+  <a href="https://github.com/mehrabja/mehrab/actions/workflows/reposentinel-ci.yml"><img src="https://github.com/mehrabja/mehrab/actions/workflows/reposentinel-ci.yml/badge.svg?branch=main" alt="RepoSentinel CI" /></a>
+  <a href="https://github.com/mehrabja/mehrab/actions/workflows/modelops-ci.yml"><img src="https://github.com/mehrabja/mehrab/actions/workflows/modelops-ci.yml/badge.svg?branch=main" alt="ModelOps Launchpad CI" /></a>
+</p>
+
 ## Project constellation
 
 | Project | Focus | What it demonstrates |
@@ -63,6 +69,16 @@ A reproducible ML service template with a small deterministic classifier and a p
 - Docker image, Compose stack, tests, and least-privilege GitHub Actions workflow.
 
 **Start:** [ModelOps Launchpad README](./modelops-launchpad/README.md)
+
+## Try the projects
+
+| Project | Runnable demo |
+|---|---|
+| ContextForge | [HTTP requests](./contextforge/examples/demo.http) — ingest a runbook, then ask a source-grounded question |
+| RepoSentinel | [Demo fixture](./reposentinel/examples/demo-repo/) — scan intentionally unsafe sample code and inspect JSON / SARIF findings |
+| ModelOps Launchpad | [HTTP requests](./modelops-launchpad/examples/demo.http) — check health/readiness, request a prediction, and inspect Prometheus metrics |
+
+Each HTTP demo can be opened with the VS Code REST Client extension after starting its local API. The RepoSentinel fixture is scanned as text and should not be executed.
 
 ## Engineering principles
 
