@@ -112,11 +112,9 @@ def create_app(model_path: str | Path | None = None) -> FastAPI:
             labels = f'method="{method}",path="{safe_path}"'
             lines.append(f"modelops_http_requests_total{{{labels}}} {count}")
             counts = api.state.duration_buckets[(method, path)]
-            cumulative = 0
             for index, bound in enumerate(BUCKETS):
-                cumulative += counts[index]
                 lines.append(
-                    f'modelops_http_request_duration_seconds_bucket{{{labels},le="{bound}"}} {cumulative}'
+                    f'modelops_http_request_duration_seconds_bucket{{{labels},le="{bound}"}} {counts[index]}'
                 )
             lines.append(
                 f'modelops_http_request_duration_seconds_bucket{{{labels},le="+Inf"}} {count}'
