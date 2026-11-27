@@ -1,0 +1,12 @@
+{
+  "documents": [
+    {"source":"security-review.md","text":"A secure code review checks trust boundaries, input validation, authentication, authorization, error handling, and audit logging."},
+    {"source":"rag-evaluation.md","text":"Retrieval evaluation measures whether relevant documents appear near the top. Recall at k measures coverage in the first k results. Reciprocal rank rewards the position of the first relevant result."},
+    {"source":"model-serving.md","text":"A model-serving API should expose liveness and readiness checks, validate input features, report prediction latency, and record the model version."}
+  ],
+  "queries": [
+    {"question":"How do we evaluate ranked document retrieval?","expected_source":"rag-evaluation.md"},
+    {"question":"What should a secure code review check?","expected_source":"security-review.md"},
+    {"question":"Which operational endpoints should a model API expose?","expected_source":"model-serving.md"}
+  ]
+}
