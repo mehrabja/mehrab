@@ -1,5 +1,7 @@
 # ContextForge
 
+[![ContextForge CI](https://github.com/mehrabja/mehrab/actions/workflows/contextforge-ci.yml/badge.svg?branch=main)](https://github.com/mehrabja/mehrab/actions/workflows/contextforge-ci.yml)
+
 <p align="center">
   <img src="https://img.shields.io/badge/LLM-APPLICATIONS-8B5CF6?style=for-the-badge" alt="LLM applications" />
   <img src="https://img.shields.io/badge/RAG-SOURCE%20GROUNDED-0891B2?style=for-the-badge" alt="RAG" />
@@ -30,6 +32,12 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
+
+## Hands-on API demo
+
+Start the API using the quick-start commands above, then open [examples/demo.http](./examples/demo.http) in VS Code with the REST Client extension. Send the document-ingestion request first, followed by the query request. The response includes the answer mode and a `sources` array containing source IDs, quoted passages, and retrieval scores.
+
+The local baseline is extractive and uses deterministic feature hashing; it is not a neural embedding model. Configure an OpenAI-compatible endpoint only when you want generated answers.
 API docs: http://127.0.0.1:8000/docs
 
 ### Ingest and query
