@@ -32,6 +32,6 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: pip install -r requirements-dev.txt
       - run: python scripts/train.py --output-dir artifacts
-      - run: pytest -q
+      - run: PYTHONPATH=. pytest -q
       - name: Build container image
         run: docker build -t modelops-launchpad:test .
