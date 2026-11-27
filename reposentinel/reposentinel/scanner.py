@@ -172,7 +172,10 @@ def _content_findings(text: str, path: Path, relative: str) -> list[Finding]:
     return findings
 
 def scan(target: str | Path) -> list[Finding]:
-    root = Path(target).expanduser().resolve()
+    requested = Path(target).expanduser()
+    if requested.is_symlink():
+        raise ValueError("scan target must not be a symbolic link")
+    root = requested.resolve()
     if not root.exists():
         raise FileNotFoundError(f"scan target does not exist: {root}")
     findings = []
@@ -250,7 +253,7 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
         findings = scan(args.path)
-    except OSError as exc:
+    except (OSError, ValueError) as exc:
         print(f"RepoSentinel: {exc}", file=sys.stderr)
         return 2
     if args.format == "sarif":
