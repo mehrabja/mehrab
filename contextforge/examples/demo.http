@@ -1,0 +1,19 @@
+### ContextForge — ingest a small source document
+POST http://127.0.0.1:8000/v1/documents
+Content-Type: application/json
+
+{
+  "source": "incident-runbook.md",
+  "text": "Incident response begins by opening an incident record and assigning an incident commander. The on-call engineer checks recent deployments and service health. If customer impact continues, the incident commander escalates to the service owner. Recovery steps are documented, and the incident is closed only after monitoring confirms stability."
+}
+
+###
+
+### Ask a question and inspect the cited source
+POST http://127.0.0.1:8000/v1/query
+Content-Type: application/json
+
+{
+  "question": "When should an incident be escalated to the service owner?",
+  "k": 3
+}
