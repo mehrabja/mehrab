@@ -1,5 +1,7 @@
 # ModelOps Launchpad
 
+[![ModelOps Launchpad CI](https://github.com/mehrabja/mehrab/actions/workflows/modelops-ci.yml/badge.svg?branch=main)](https://github.com/mehrabja/mehrab/actions/workflows/modelops-ci.yml)
+
 <p align="center">
   <img src="https://img.shields.io/badge/MLOps-REPRODUCIBLE%20TRAINING-8B5CF6?style=for-the-badge" alt="Reproducible training" />
   <img src="https://img.shields.io/badge/DEPLOYMENT-DOCKER-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker deployment" />
@@ -43,6 +45,12 @@ curl -X POST http://127.0.0.1:8000/v1/predict \
 ```
 
 The response contains the predicted class, class probabilities, model version, and feature names.
+
+## Hands-on HTTP demo
+
+After training the model and starting Uvicorn using the commands above, open [examples/demo.http](./examples/demo.http) in VS Code with the REST Client extension. It exercises liveness, readiness, prediction, and Prometheus metrics. The prediction endpoint requires exactly four finite numeric features and returns the class, probabilities, model version, and feature names.
+
+The training dataset is synthetic. Its reported accuracy is an engineering smoke-test metric, not evidence of real-world predictive performance.
 
 ## Run with Compose
 
