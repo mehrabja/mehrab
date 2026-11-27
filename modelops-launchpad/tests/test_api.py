@@ -40,7 +40,11 @@ def test_unready_service_returns_503(tmp_path):
 
 def test_non_finite_features_are_rejected(tmp_path):
     client = make_client(tmp_path)
-    response = client.post("/v1/predict", json={"features": [0.1, 0.2, float("nan"), 0.4]})
+    response = client.post(
+        "/v1/predict",
+        content='{"features":[0.1,0.2,NaN,0.4]}',
+        headers={"Content-Type": "application/json"},
+    )
     assert response.status_code == 422
 
 
