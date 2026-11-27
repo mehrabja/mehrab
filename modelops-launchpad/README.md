@@ -69,6 +69,8 @@ curl http://127.0.0.1:8000/metrics
 
 The metrics endpoint exposes request totals and a duration histogram by method and route. Tracing, drift monitoring, alert rules, model registry integration, and deployment promotion are not yet implemented.
 
+The GitHub Actions workflow reports measured application coverage in its job summary; no minimum coverage threshold is claimed.
+
 ## Architecture
 
 ```text
