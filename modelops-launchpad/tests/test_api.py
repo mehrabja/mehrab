@@ -42,3 +42,17 @@ def test_non_finite_features_are_rejected(tmp_path):
     client = make_client(tmp_path)
     response = client.post("/v1/predict", json={"features": [0.1, 0.2, float("nan"), 0.4]})
     assert response.status_code == 422
+
+
+def test_histogram_buckets_are_cumulative(tmp_path):
+    client = make_client(tmp_path)
+    client.get("/healthz")
+    client.post("/v1/predict", json={"features": [0.2, -0.1, 1.3, 0.7]})
+    metrics = client.get("/metrics").text
+    bucket_lines = [
+        line for line in metrics.splitlines()
+        if 'path="/v1/predict"' in line and "_bucket{" in line and 'le="+Inf"' not in line
+    ]
+    counts = [int(line.rsplit(" ", 1)[1]) for line in bucket_lines]
+    assert counts == sorted(counts)
+    assert counts[-1] <= 1
