@@ -63,6 +63,8 @@ uvicorn app.main:app --reload
 
 The provider must expose `POST /chat/completions`. No model or credentials are bundled. Documents are sent to an external service only when you explicitly configure a model endpoint.
 
+
+The GitHub Actions workflow runs the API tests and reports measured line coverage in the workflow job summary. No minimum coverage threshold is claimed.
 ## Evaluation and tests
 
 ```bash
