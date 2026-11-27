@@ -59,3 +59,15 @@ def test_refuses_symlink_scan_root(tmp_path):
     alias.symlink_to(target, target_is_directory=True)
     with pytest.raises(ValueError, match="symbolic link"):
         scan(alias)
+
+
+def test_detects_github_workflow_write_permissions(tmp_path):
+    workflow = tmp_path / ".github" / "workflows" / "unsafe.yml"
+    workflow.parent.mkdir(parents=True)
+    workflow.write_text(
+        "permissions:\n  write-all\njobs:\n  deploy:\n"
+        "    permissions:\n      contents: write\n",
+        encoding="utf-8",
+    )
+    rules = {item.rule_id for item in scan(tmp_path)}
+    assert {"RS030", "RS031"} <= rules
