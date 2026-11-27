@@ -103,7 +103,8 @@ class DocumentStore:
                 "score": round(score, 6),
             })
         ranked.sort(key=lambda x: (x["score"], x["source"]), reverse=True)
-        return ranked[:max(1, min(k, 10))]
+        relevant = [item for item in ranked if item["score"] > 0]
+        return relevant[:max(1, min(k, 10))]
 
     def close(self) -> None:
         with self.lock:
